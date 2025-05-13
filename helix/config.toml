@@ -1,0 +1,25 @@
+theme ="ayu_evolve"
+
+[editor]
+clipboard-provider = "wayland"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+snippets = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[keys.normal]
+A-h = ["move_prev_word_start", "collapse_selection"]
+A-l = ["move_next_word_end", "collapse_selection"]
+del = "delete_char_forward"
+A-del = "delete_word_forward"
+
