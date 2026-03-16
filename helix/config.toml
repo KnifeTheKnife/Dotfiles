@@ -17,9 +17,20 @@ snippets = true
 [editor.inline-diagnostics]
 cursor-line = "hint"
 
+[editor.soft-wrap]
+enable=true
+
 [keys.normal]
 A-h = ["move_prev_word_start", "collapse_selection"]
 A-l = ["move_next_word_end", "collapse_selection"]
 del = "delete_char_forward"
 A-del = "delete_word_forward"
-
+A-d = "delete_word_forward"
+H = ":buffer-previous"
+L = ":buffer-next"
+C-q = ":buffer-close"
+C-h = "jump_view_left"
+C-l = "jump_view_right"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+esc = "insert_mode"

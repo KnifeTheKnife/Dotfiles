@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Jetbrains Mono Medium;
-    font-size: 10pt;
+    font-family: Dejavu Mono Medium;
+    font-size: 12pt;
     min-height: 0;
 }
 
@@ -36,7 +36,7 @@ tooltip label {
     border-bottom: 2px solid #327bd1;
 }
 #custom-notification {
-  font-family: "Jetbrains Mono Nerd Font";
+  font-family: "Dejavu Mono";
 }
 #pulseaudio {
 	padding-right: 10px

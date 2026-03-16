@@ -6,19 +6,16 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 0,
+    "height": 15,
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "hyprland/window"
     ],
-    "modules-center": ["hyprland/window"],
+    "modules-center": ["clock"],
     "modules-right": [
-        "clock",
-        //"custom/updates",
-        //"temperature",
-        //"battery",
-        //"backlight",
-        //"pulseaudio",
-        //"pulseaudio#microphone",
+        "temperature",
+        "backlight",
+        "battery",
         "tray",
         "custom/notification"
     ],
@@ -29,15 +26,14 @@
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        //"on-click": "activate",
         "format": "{name}",
 },
     "custom/updates": {
-        "format": "{}  ",
-        "interval": 3600,                     // every two hours
-        "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
-        "exec-if": "exit 0",                  // always run; consider advanced run conditions
-        "on-click": "kitty -e sudo pacman -Syu", // update system
+        "format": " {}",
+        "interval": 3600,
+        "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",
+        "exec-if": "exit 0",
+        "on-click": "kitty -e sudo yay -Syu",
         "signal": 8
     },
    "custom/weather" : {
@@ -48,12 +44,9 @@
         "return-type" : "json"
     },
         "temperature": {
-         "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
         "format": "{icon}{temperatureC}°C",
-        "format-icons": [""]
+        "format-icons": ["", "", ""]
     },
     "tray": {
         "icon-size": 13,
@@ -64,8 +57,8 @@
         "format-icons": ["󱩎 ", "󱩏 ", "󱩐 ", "󱩑 ", "󱩒 ", "󱩓 ", "󱩔 ", "󱩕 ", "󱩖 ", "󰛨 "]
     },
     "clock": {
-        "format": "{:%H:%M} 󰥔 ",
-        "format-alt": "{:%A, %B %d, %Y (%R)} 󰥔 ",
+        "format": " {:%R %d/%m/%Y}",
+        "format-alt": " {:%R %A %d %B %Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
                     "mode"          : "year",
@@ -86,17 +79,18 @@
                     "on-scroll-up": "shift_up",
                     "on-scroll-down": "shift_down"
                     }
-    },    "battery": {
+    },
+    "battery": {
         "states": {
             "good": 95,
             "warning": 30,
             "critical": 20
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-plugged": "  {capacity}%",
-        //"format-alt": "{icon} {time}}",
-        "format-icons": ["  ", "  ", "  ", "  ", "  "]
+        "format": "{icon}{capacity}%",
+        "format-charging": "󰂄{capacity}%",
+        "format-plugged": "󰂄{capacity}%",
+        "format-alt": "󰂄{time}}",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁾", "󰁿","󰂀","󰂂","󰁹"]
         
     },
     "pulseaudio": {
@@ -130,13 +124,13 @@
     "tooltip": false,
     "format": "{icon}",
     "format-icons": {
-      "notification": "<span foreground='red'><sup></sup></span>",
+      "notification": "<span foreground='red'><sup></sup></span> ",
       "none": " ",
-      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-notification": "<span foreground='red'><sup></sup></span> ",
       "dnd-none": " ",
-      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span> ",
       "inhibited-none": " ",
-      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span> ",
       "dnd-inhibited-none": " "
     },
     "return-type": "json",
